@@ -3,8 +3,9 @@ from django.shortcuts import render
 from django.http import JsonResponse
 # Create your views here.
 ans ={}
-temp =int(1)
+
 def greet(request,n,q):
+    temp =int(1)
     k =0
     for j in range(n,q):
         beq =[]
