@@ -1,8 +1,8 @@
 { extends "layout.html" }
 {% block content %}
- <form text = text>
-    Enter query
-    <input></input>
-    <button >Submit</button>
- </form>
+<form action="/yourquery/" method="post">
+    <label for="yourquery">Your query: </label>
+    <input id="yourquery" type="text" name="yourquery" value="{{ query }}">
+    <input type="submit" value="OK">
+</form>
 {%endblock content%}
