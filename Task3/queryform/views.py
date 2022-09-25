@@ -1,23 +1,21 @@
-from urllib import response
+
 from django.shortcuts import render
 import requests
 from .forms import Queryform
 from django.http import HttpResponseRedirect
 
+
 # Create your views here.
+queries =['Which song is this']
 def index(request):
-    return render(request, 'queryform/Form.html')
+    return render(request, 'queryform/index.html', {'queries':queries})
 
-def get_query(request):
-    if request.method == 'POST':
-        form = Queryform(request.POST)
-        if form.is_valid():
-            data = form.cleaned_data
-            
-            return HttpResponseRedirect('/yourquery')
+def question(request):
+    if request.method =='POST':
+        form =Queryform(request.POST)
+        if form.is_valid():#cleaned_data is only invoked after the isvalid check
+            query = form.cleaned_data["query"]
+            queries.append(query)
         else:
-            form = Queryform()#creates a blank form
-            return render(request, 'Form.html',{'form':form})
-
-def your_query(request):
-    return HttpResponseRedirect(redirect_to='/queryform')
+            return render(request, 'queryform/Form.html',{"form": form})#returns the existing form data
+    return render(request, 'queryform/Form.html', {"form":Queryform()} )
