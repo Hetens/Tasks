@@ -1,30 +1,30 @@
-var n = prompt('no of words')
-const text  = []
-var k
+var n = prompt("enter number of words")
+var c =0
+let k =1
+const text=[]
+const occ =[]
 for(i =0;i<n;i++)
 {
-    function func()
-    {
-         text[i] = document.getElementsByName("words").values   
-    }
+    text[i] =prompt("enter word")
+    
+}
+console.log(text)
 
-}
-for(i =0;i<n;i++)
+for(i=0;i<n;i++)
 {
-    function Computation()
+    for(j =i;j<n;j++)
     {
-        for(j =0;j<n;j++)
+        if(text[i]==text[j]&&i!=j)
         {
-            if( text[i] == text[j] && i!=j)
-                {
-                    continue
-                }    
-            else{
-                k++;
-            }
+            c++;
+            occ[i]= c+1;
         }
-        
-        return  k
+        else {  
+            occ[i]=k;
+        }
     }
 }
-document.getElementById('#ans').innerHTML= Computation
+c =n-c
+console.log(c)
+
+console.log(occ)
