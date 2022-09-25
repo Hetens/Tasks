@@ -1,8 +1,12 @@
-{% extends "layout.html" %}
+{% extends "queryform/layout.html" %}
 {% block content %}
-<form action="/yourquery/" method="post">
-    <label for="yourquery">Your query: </label>
-    <input id="yourquery" type="text" name="yourquery" value="{{ query }}">
-    <input type="submit" value="OK">
+<h1>
+    Enter Query
+</h1>
+<form action ="{% url 'question'%}" method="post">
+    {% csrf_token %}
+    {{form}}
+    <input type = 'submit'>
 </form>
+<a href ="{% url 'index' %}">Return to Query Answer</a>
 {%endblock content%}

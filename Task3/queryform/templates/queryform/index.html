@@ -1,0 +1,12 @@
+{% extends "queryform/layout.html" %}
+
+{%block content%}
+  
+<body>
+    <h1> THis is the index page </h1>
+    {%for query in queries%}
+    <div>{{query}}</div>
+    {%endfor%}
+    <a href="{% url 'question' %}">Enter another query</a>
+</body>
+{%endblock%} 
