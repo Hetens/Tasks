@@ -13,10 +13,11 @@ def get_query(request):
         form = Queryform(request.POST)
         if form.is_valid():
             data = form.cleaned_data
+            
             return HttpResponseRedirect('/yourquery')
         else:
             form = Queryform()#creates a blank form
             return render(request, 'Form.html',{'form':form})
 
 def your_query(request):
-    pass
+    return HttpResponseRedirect(redirect_to='/queryform')
